@@ -1,0 +1,87 @@
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\Locate.exe.config
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\Locate.exe
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\Locate.pdb
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\CommonServiceLocator.dll
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.dll
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.dll
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.dll
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\System.Windows.Interactivity.dll
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.pdb
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.xml
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.xml
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\ZTB51\source\repos\Locate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.xml
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\MainWindow.g.cs
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\App.g.cs
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\Locate_MarkupCompile.cache
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\Locate_MarkupCompile.lref
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\MainWindow.baml
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\Locate.g.resources
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\Locate.Properties.Resources.resources
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\NASLocate.csproj.GenerateResource.cache
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\NASLocate.csproj.CoreCompileInputs.cache
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\NASLocate.csproj.CopyComplete
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\Locate.exe
+C:\Users\ZTB51\source\repos\Locate\Locate\obj\Release\Locate.pdb
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\Locate.exe.config
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\Locate.exe
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\Locate.pdb
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\CommonServiceLocator.dll
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.dll
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.dll
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.dll
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\Renci.SshNet.dll
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\System.Windows.Interactivity.dll
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.pdb
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.xml
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.xml
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.xml
+C:\Users\ZTB51\source\repos\NASLocate\Locate\bin\Release\Renci.SshNet.xml
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\NASLocate.csprojAssemblyReference.cache
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\MainWindow.g.cs
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\App.g.cs
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\Locate_MarkupCompile.cache
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\Locate_MarkupCompile.lref
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\MainWindow.baml
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\Locate.g.resources
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\Locate.Properties.Resources.resources
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\NASLocate.csproj.GenerateResource.cache
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\NASLocate.csproj.CoreCompileInputs.cache
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\NASLocate.csproj.CopyComplete
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\Locate.exe
+C:\Users\ZTB51\source\repos\NASLocate\Locate\obj\Release\Locate.pdb
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\Locate.exe.config
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\Locate.exe
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\Locate.pdb
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\CommonServiceLocator.dll
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.dll
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.dll
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.dll
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\Renci.SshNet.dll
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\System.Windows.Interactivity.dll
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.pdb
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.xml
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Extras.xml
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\GalaSoft.MvvmLight.Platform.xml
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\bin\Release\Renci.SshNet.xml
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\NASLocate.csprojAssemblyReference.cache
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\MainWindow.g.cs
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\App.g.cs
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\Locate_MarkupCompile.cache
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\Locate_MarkupCompile.lref
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\MainWindow.baml
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\Locate.g.resources
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\Locate.Properties.Resources.resources
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\NASLocate.csproj.GenerateResource.cache
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\NASLocate.csproj.CoreCompileInputs.cache
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\NASLocate.csproj.CopyComplete
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\Locate.exe
+D:\TEMP\Documents\Visual Studio 2017\Project\NASLocate\Locate\obj\Release\Locate.pdb
