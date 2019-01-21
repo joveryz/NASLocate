@@ -1,0 +1,219 @@
+﻿<Window x:Class="Locate.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Locate"
+        xmlns:util="clr-namespace:NASLocate.Util"
+        mc:Ignorable="d"
+        Title="ConfigWindow" Height="800" Width="1000">
+    <Grid>
+        <TabControl>
+            <TabItem Header="General" Width="80">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                        <!--<RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" MinHeight="100"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" MinHeight="100"/>
+                            <RowDefinition Height="Auto"/>-->
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Locate Config" Margin="5">
+                        <StackPanel>
+                            <CheckBox IsChecked="{Binding IgnoreCaseDist, Mode=TwoWay}" Content="Ignore case distinctions (-i)" Margin="5"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox  Name="Loc_l" IsChecked="{Binding LimitOutputNum, Mode=TwoWay}" Content="Limit output to number (-l)" Margin="5 5 10 5"/>
+                                <TextBox Grid.Column="1" IsEnabled="{Binding IsChecked,ElementName=Loc_l}" Text="{Binding LimitNum, Mode=TwoWay}"  Height="20" />
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Header="Search Config" Margin="5">
+                        <StackPanel>
+                            <CheckBox Content="Search in NAS" IsChecked="{Binding SearchInNAS,Mode=TwoWay}" Margin="5"/>
+                            <CheckBox Content="Search in Windows Subsystem for Linux (WSL)" IsChecked="{Binding SearchInWSL,Mode=TwoWay}" Margin="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Grid.Row="2" Header="Path Config" Margin="5">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="Replace" Margin="2 0"/>
+                                <TextBox Grid.Column="1" Text="{Binding LinuxPath, Mode=TwoWay}" Height="20"/>
+                                <Label Grid.Column="2" Content="with"/>
+                                <TextBox Grid.Column="3" Text="{Binding WindowsPath, Mode=TwoWay}" Height="20"/>
+                            </Grid>
+                            <Grid Grid.Row="3" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="Reset" Width="50" Command="{Binding PathResetCommand}" HorizontalAlignment="Right" Margin="5 5 5 0"/>
+                                <Button Grid.Column="1"  Content="Save" Width="50" Command="{Binding PathSaveCommand}" HorizontalAlignment="Right" Margin="5 5 1 0"/>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="3" Header="Path List" Margin="5">
+                        <util:ExtendedDataGrid CanUserSortColumns="False" RowHeaderWidth="0" ItemsSource="{Binding PathInfoHashSet}" AutoGenerateColumns="False" VerticalGridLinesBrush="Gray" HorizontalGridLinesBrush="Gray">
+                            <util:ExtendedDataGrid.Columns>
+                                <DataGridTextColumn Header="Index" Binding="{Binding Path=Header,RelativeSource={RelativeSource AncestorType=DataGridRow}}" Width="Auto" />
+                                <DataGridTextColumn Header="Linux Path" Binding="{Binding LinuxPath}" Width="1*"/>
+                                <DataGridTextColumn Header="Windows Path" Binding="{Binding WindowsPath}" Width="1*"/>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Delete" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type GroupBox}}, Path=DataContext.PathInfoDeleteCommand}" CommandParameter="{Binding}" Width="50" Height="19.2" Margin="1"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </util:ExtendedDataGrid.Columns>
+                        </util:ExtendedDataGrid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="4" Header="Config File" Margin="5 5 5 0">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="Path: " Margin="2 0"/>
+                                <TextBox Grid.Column="1" Text="{Binding ConfigFilePath, Mode=TwoWay}" Height="20" IsReadOnly="True"/>
+                            </Grid>
+                            <Grid Grid.Row="3" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="Connect" Width="50" Command="{Binding SSHConnectCommand}" HorizontalAlignment="Right" Margin="5 5 5 0"/>
+                                <Button Grid.Column="1" Content="Import" Width="50" Command="{Binding ConfigFileImportCommand}" HorizontalAlignment="Right" Margin="5 5 5 0"/>
+                                <Button Grid.Column="2" Content="Save" Width="50" Command="{Binding ConfigFileSaveCommand}" HorizontalAlignment="Right" Margin="5 5 5 0"/>
+                                <Button Grid.Column="3"  Content="Clear" Width="50" Command="{Binding ConfigFileClearCommand}" HorizontalAlignment="Right" Margin="5 5 1 0"/>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="SSH" Width="80">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <GroupBox Grid.Row="0" Header="SSH Config" Margin="5">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="User@IP:Port:" Margin="2 0"/>
+                                <TextBox Grid.Column="1" Text="{Binding SSHUserName, Mode=TwoWay}" Height="20"/>
+                                <Label Grid.Column="2" Content="@"/>
+                                <TextBox Grid.Column="3" Text="{Binding SSHIP, Mode=TwoWay}" Height="20"/>
+                                <Label Grid.Column="4" Content=":"/>
+                                <TextBox Grid.Column="5" Text="{Binding SSHPort, Mode=TwoWay}" Height="20"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="Password:" Margin="2 0"/>
+                                <PasswordBox Grid.Column="1" Name="SSHPassword" PasswordChanged="SSHPassword_PasswordChanged" Height="20" MinWidth="80"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="System:" Margin="2 0"/>
+                                <ComboBox Grid.Column="1" ItemsSource="{Binding SSHSystemList}" SelectedItem="{Binding SSHSystem,Mode=TwoWay}" SelectedIndex="0" Height="20"/>
+                                <Label Grid.Column="2" Content="Type:" Margin="2 0"/>
+                                <ComboBox Grid.Column="3" ItemsSource="{Binding SSHTypeList}" SelectedItem="{Binding SSHType,Mode=TwoWay}" SelectedIndex="0" Height="20"/>
+                            </Grid>
+                            <Grid Grid.Row="3" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="Reset" Width="50" Command="{Binding SSHResetCommand}" HorizontalAlignment="Right" Margin="5 5 5 0"/>
+                                <Button Grid.Column="1"  Content="Test" Width="50" Command="{Binding SSHTestCommand}" HorizontalAlignment="Right" Margin="5 5 1 0"/>
+                                <Button Grid.Column="2"  Content="Save" Width="50" Command="{Binding SSHSaveCommand}" HorizontalAlignment="Right" Margin="5 5 1 0"/>
+                                <TextBox Text="{Binding SSHReset}" Visibility="Collapsed" TextChanged="SSHReset_TextChanged"/>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Header="SSH List" Margin="5">
+                        <util:ExtendedDataGrid CanUserSortColumns="False" RowHeaderWidth="0" ItemsSource="{Binding SSHInfoHashSet}" AutoGenerateColumns="False" VerticalGridLinesBrush="Gray" HorizontalGridLinesBrush="Gray" BorderBrush="{x:Null}">
+                            <util:ExtendedDataGrid.Columns>
+                                <DataGridTextColumn Header="Index" Binding="{Binding Path=Header, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Width="Auto" />
+                                <DataGridTextColumn Header="User" Binding="{Binding UserName}" Width="1*"/>
+                                <DataGridTextColumn Header="IP" Binding="{Binding IP}" Width="1*"/>
+                                <DataGridTextColumn Header="Port" Binding="{Binding Port}" Width="1*"/>
+                                <DataGridTemplateColumn Header="System" Width="1*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox SelectedValue="{Binding System}" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type GroupBox}},Path=DataContext.SSHSystemList}" Margin="1" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Type" Width="1*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox SelectedValue="{Binding Type}" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type GroupBox}},Path=DataContext.SSHTypeList}" Margin="1" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Delete" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type GroupBox}}, Path=DataContext.SSHInfoDeleteCommand}" CommandParameter="{Binding}" Width="50" Height="19.2" Margin="1" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </util:ExtendedDataGrid.Columns>
+                        </util:ExtendedDataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
