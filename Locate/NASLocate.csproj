@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConfigWindow.xaml.cs">
+      <DependentUpon>ConfigWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util\ConfigIO.cs" />
     <Compile Include="Information\PathInfo.cs" />
     <Compile Include="Information\SearchInfo.cs" />
@@ -86,6 +89,10 @@
     <Compile Include="Util\ObservableHashSet.cs" />
     <Compile Include="Util\SSH.cs" />
     <Compile Include="ViewModel.cs" />
+    <Page Include="ConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

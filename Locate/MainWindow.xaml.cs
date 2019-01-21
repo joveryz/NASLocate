@@ -72,17 +72,6 @@ namespace NASLocate
         //}
         //#endregion
 
-        private void SSHPassword_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            var vm = DataContext as ViewModel;
-            vm.SSHPassword = SSHPassword.Password;
-        }
-        private void SSHReset_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var vm = DataContext as ViewModel;
-            vm.SSHReset = false;
-            SSHPassword.Clear();
-        }
         private void SearchTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)

@@ -17,14 +17,36 @@ using System.Collections.Generic;
 using Renci.SshNet.Common;
 using System.Net.Sockets;
 using System.IO;
+using Locate;
+using System.Collections.ObjectModel;
 
 namespace NASLocate
 {
-    class ViewModel : ObservableObject
+    public class ViewModel : ObservableObject
     {
 
-        private static List<SshClient> SSHNASClientList;
-        private static List<SshClient> SSHWSLClientList;
+        private ObservableCollection<SshClient> _SSHNASClientList;
+        public ObservableCollection<SshClient> SSHNASClientList
+        {
+            get { return _SSHNASClientList; }
+            set
+            {
+                _SSHNASClientList = value;
+                RaisePropertyChanged(() => SSHNASClientList);
+            }
+        }
+        private ObservableCollection<SshClient> _SSHWSLClientList;
+        public ObservableCollection<SshClient> SSHWSLClientList
+        {
+            get { return _SSHWSLClientList; }
+            set
+            {
+                _SSHWSLClientList = value;
+                RaisePropertyChanged(() => SSHWSLClientList);
+            }
+        }
+        
+        public RelayCommand ConfigCommand { get; private set; }
 
         #region LocateConfig
         private bool _IgnoreCaseDist;
@@ -308,7 +330,6 @@ namespace NASLocate
 
             SSHSystemList = new ObservableHashSet<string>() { "Linux", "Unix" };
             SSHTypeList = new ObservableHashSet<string>() { "NAS", "WSL" };
-            SSHInfoHashSet = new ObservableHashSet<SSHInfo>();
             
             SSHResetCommand = new RelayCommand(ResetSSHVars);
             SSHTestCommand = new RelayCommand(SSHTest);
@@ -316,6 +337,7 @@ namespace NASLocate
             SSHInfoDeleteCommand = new RelayCommand<SSHInfo>(SSHInfoDelete);
 
             PathInfoHashSet = new ObservableHashSet<PathInfo>();
+            SSHInfoHashSet = new ObservableHashSet<SSHInfo>();
             
             PathResetCommand = new RelayCommand(ResetPathVars);
             PathSaveCommand = new RelayCommand(PathSave);
@@ -329,12 +351,13 @@ namespace NASLocate
             OpenFolderPathCommand = new RelayCommand<SearchInfo>(OpenFolderPath);
             SearchInfoHashSet = new ObservableHashSet<SearchInfo>();
 
+            ConfigCommand = new RelayCommand(OnConfig);
         }
 
         public void SSHConnect()
         {
-            SSHNASClientList = new List<SshClient>();
-            SSHWSLClientList = new List<SshClient>();
+            SSHNASClientList = new ObservableCollection<SshClient>();
+            SSHWSLClientList = new ObservableCollection<SshClient>();
             foreach (SSHInfo i in SSHInfoHashSet)
             {
                 SshClient ssh = new SshClient(i.IP, int.Parse(i.Port), i.UserName, i.Password);
@@ -384,8 +407,15 @@ namespace NASLocate
             SetAll();
             ReadConfigFromFile(ConfigFilePath);
             SSHReset = false;
+
             
             SSHConnect();
+        }
+
+        private void OnConfig()
+        {
+            ConfigWindow configWindow = new ConfigWindow(this);
+            configWindow.Show();
         }
         #endregion
 
@@ -408,7 +438,18 @@ namespace NASLocate
         {
             if (SSHUserName != null && SSHIP != null && SSHPort != null && SSHSystem != null && SSHType != null && SSHPassword != null)
             {
-                SSHInfoHashSet.Add(new SSHInfo(SSHUserName, SSHIP, SSHPort, SSHSystem, SSHType, SSHPassword));
+                var newSSHInfo = new SSHInfo(SSHUserName, SSHIP, SSHPort, SSHSystem, SSHType, SSHPassword);
+                SSHInfoHashSet.Add(newSSHInfo);
+                SshClient ssh = new SshClient(newSSHInfo.IP, int.Parse(newSSHInfo.Port), newSSHInfo.UserName, newSSHInfo.Password);
+                if (newSSHInfo.Type == "NAS")
+                {
+                    SSHNASClientList.Add(ssh);
+                }
+                else
+                {
+                    SSHWSLClientList.Add(ssh);
+                }
+                ssh.Connect();
                 ResetSSHVars();
             }
             ConfigFileSave();
@@ -417,6 +458,29 @@ namespace NASLocate
         private void SSHInfoDelete(SSHInfo info)
         {
             SSHInfoHashSet.Remove(info);
+            SshClient ssh = new SshClient(info.IP, int.Parse(info.Port), info.UserName, info.Password);
+            if (info.Type == "NAS")
+            {
+                foreach (var sshClient in SSHNASClientList)
+                {
+                    if (sshClient.ToString() == ssh.ToString())
+                    {
+                        SSHNASClientList.Remove(sshClient);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var sshClient in SSHWSLClientList)
+                {
+                    if (sshClient.ToString() == ssh.ToString())
+                    {
+                        SSHWSLClientList.Remove(sshClient);
+                        break;
+                    }
+                }
+            }
             ConfigFileSave();
         }
 
